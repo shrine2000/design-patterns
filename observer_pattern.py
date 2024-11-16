@@ -1,15 +1,17 @@
 from abc import ABC, abstractmethod
 
+
 class Observer(ABC):
     @abstractmethod
     def update(self, message):
         pass
-    
+
+
 class Subject(ABC):
     @abstractmethod
     def attach(self, observer: Observer):
         pass
-    
+
     @abstractmethod
     def detach(self, observer: Observer):
         pass
@@ -17,6 +19,7 @@ class Subject(ABC):
     @abstractmethod
     def notify(self):
         pass
+
 
 class NewsPublisher(Subject):
     def __init__(self):
@@ -39,6 +42,7 @@ class NewsPublisher(Subject):
         self._latest_news = news
         self.notify()
 
+
 class NewsReader(Observer):
     def __init__(self, name):
         self._name = name
@@ -56,7 +60,7 @@ class EmailSubscriber(Observer):
 
 
 class MobileAppSubscriber(Observer):
-    def  __init__(self, username):
+    def __init__(self, username):
         self._username = username
 
     def update(self, message):
