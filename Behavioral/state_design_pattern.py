@@ -45,17 +45,18 @@ class Document:
     def review(self):
         self.state.review(self)
 
+if __name__ == "__main__":
 
-document = Document()
+    document = Document()
 
-document.review()
-document.publish()
-
-
-document.review()
-document.publish()
+    document.review()
+    document.publish()
 
 
-document.state = PublishedState()
-document.publish()
-document.review()
+    document.review()
+    document.publish()
+
+
+    document.state = PublishedState()
+    document.publish()
+    document.review()
